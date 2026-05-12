@@ -163,11 +163,19 @@
      MODAL DETALLE DE PRODUCTO
      ============================================================ -->
 <div class="modal-overlay" id="modal-overlay" onclick="cerrarModal()"></div>
+<div class="fullscreen-overlay" id="fullscreen-overlay" onclick="cerrarFullscreen()">
+  <img id="fullscreen-img" src="" alt="">
+  <button class="fullscreen-close" onclick="cerrarFullscreen()">✕</button>
+</div>
+<div class="fullscreen-overlay" id="fullscreen-overlay" onclick="cerrarFullscreen()">
+  <img id="fullscreen-img" src="" alt="">
+  <button class="fullscreen-close" onclick="cerrarFullscreen()">✕</button>
+</div>
 <div class="modal-producto" id="modal-producto">
   <button class="modal-close" onclick="cerrarModal()">✕</button>
   <div class="modal-body">
     <div class="modal-imagen-wrap" id="modal-imagen-wrap">
-      <img id="modal-img" src="" alt="">
+      <img id="modal-img" src="" alt="" onclick="abrirFullscreen(this.src)" style="cursor:zoom-in">
       <div id="modal-badge-wrap"></div>
     </div>
     <div class="modal-info">
@@ -227,24 +235,24 @@ const config = {
    - tallas:    Array de tallas disponibles
    ============================================================ */
 const productos = [
-    {
-  nombre: "Pantalón Cargo",
-  categoria: "Pantalones",
-  precio: 70000,
-  original: 95000,
-  imagen: "fotos/PANTALON.jpg",
-  badge: "nuevo",
-  tallas: ["M",]
-},
-{
-  nombre: "Hoddie Oversize - Equinox",
-  categoria: "Hoddie",
-  precio: 95000,
-  original: 0,
-  imagen: "fotos/Hoddie-equinox.jpeg",  
-  badge: "nuevo",
-  tallas: ["M"]
-},
+  {
+    nombre: "Pantalón Cargo",
+    categoria: "Pantalones",
+    precio: 70000,
+    original: 95000,
+    imagen: "fotos/PANTALON.jpg",
+    badge: "nuevo",
+    tallas: ["M"]
+  },
+  {
+    nombre: "Hoddie Oversize - Equinox",
+    categoria: "Hoddie",
+    precio: 95000,
+    original: 0,
+    imagen: "fotos/Hoddie-equinox.jpeg",
+    badge: "nuevo",
+    tallas: ["M"]
+  },
   {
     nombre: "Hoddie Oversize - FORGER",
     categoria: "Hoodies",
@@ -260,12 +268,9 @@ const productos = [
     precio: 70000,
     original: 0,
     imagen: "fotos/C1.jpg",
-    fotos: [
-    "fotos/C1.jpg",      // foto principal
-    "fotos/C1,1.jpg",    // segunda foto
-  ],
+    fotos: ["fotos/C1.jpg", "fotos/C1,1.jpg"],
     badge: "nuevo",
-    tallas: ["M",]
+    tallas: ["M"]
   },
   {
     nombre: "Camiseta Oversize",
@@ -273,12 +278,9 @@ const productos = [
     precio: 70000,
     original: 0,
     imagen: "fotos/C2.jpg",
-    fotos: [
-    "fotos/C2.jpg",      // foto principal
-    "fotos/C2,2.jpg",    // segunda foto
-  ],
+    fotos: ["fotos/C2.jpg", "fotos/C2,2.jpg"],
     badge: "nuevo",
-    tallas: ["M",]
+    tallas: ["M"]
   },
   {
     nombre: "Camiseta Oversize",
@@ -286,12 +288,9 @@ const productos = [
     precio: 70000,
     original: 0,
     imagen: "fotos/C3.jpg",
-    fotos: [
-    "fotos/C3.jpg",      // foto principal
-    "fotos/C3,3.jpg",    // segunda foto
-  ],
+    fotos: ["fotos/C3.jpg", "fotos/C3,3.jpg"],
     badge: "nuevo",
-    tallas: ["M",]
+    tallas: ["M"]
   },
   {
     nombre: "Camiseta Oversize",
@@ -299,12 +298,9 @@ const productos = [
     precio: 70000,
     original: 0,
     imagen: "fotos/C4.jpg",
-    fotos: [
-    "fotos/C4.jpg",      // foto principal
-    "fotos/C4,4.jpg",    // segunda foto
-  ],
+    fotos: ["fotos/C4.jpg", "fotos/C4,4.jpg"],
     badge: "nuevo",
-    tallas: ["M",]
+    tallas: ["M"]
   },
   {
     nombre: "Camiseta Oversize",
@@ -312,27 +308,21 @@ const productos = [
     precio: 70000,
     original: 0,
     imagen: "fotos/C5.jpg",
-    fotos: [
-    "fotos/C5.jpg",      // foto principal
-    "fotos/C5,5.jpg",    // segunda foto
-  ],
+    fotos: ["fotos/C5.jpg", "fotos/C5,5.jpg"],
     badge: "nuevo",
-    tallas: ["M",]
+    tallas: ["M"]
   },
-     {
+  {
     nombre: "Camiseta Oversize",
     categoria: "Camisetas",
     precio: 55000,
     original: 70000,
     imagen: "fotos/O1.jpg",
-    fotos: [
-    "fotos/O1.jpg",      // foto principal
-    "fotos/O1,1.jpg",    // segunda foto
-  ],
+    fotos: ["fotos/O1.jpg", "fotos/O1,1.jpg"],
     badge: "oferta",
-    tallas: ["M",]
+    tallas: ["M"]
   },
-  
+
   /* ────────────────────────────────────────────────────────
      PARA AGREGAR UN PRODUCTO NUEVO, COPIA Y PEGA ESTO:
   {
@@ -527,6 +517,25 @@ function aplicarConfig() {
   document.getElementById("info-email").textContent     = config.email;
   document.getElementById("info-direccion").textContent = config.direccion;
   document.getElementById("info-horario").textContent   = config.horario;
+}
+
+function abrirFullscreen(src) {
+  document.getElementById("fullscreen-img").src = src;
+  document.getElementById("fullscreen-overlay").classList.add("open");
+}
+
+function cerrarFullscreen() {
+  document.getElementById("fullscreen-overlay").classList.remove("open");
+}
+
+/* ── FULLSCREEN ──────────────────────────────────────────── */
+function abrirFullscreen(src) {
+  document.getElementById("fullscreen-img").src = src;
+  document.getElementById("fullscreen-overlay").classList.add("open");
+}
+
+function cerrarFullscreen() {
+  document.getElementById("fullscreen-overlay").classList.remove("open");
 }
 
 /* ── MODAL DETALLE ───────────────────────────────────────── */
