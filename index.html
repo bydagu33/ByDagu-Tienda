@@ -5,18 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ByDagu — Tienda de Ropa - StreetWear</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-<!-- ============================================================
-     ESTILOS: edita el archivo "bydagu-estilos.css"
-     para cambiar colores, fuentes y diseño visual
-     ============================================================ -->
 <link rel="stylesheet" href="bydagu-estilos.css">
 </head>
 <body>
 
-<!-- ============================================================
-     NAVBAR
-     ============================================================ -->
 <nav>
 <a class="logo" href="#" onclick="showSection('catalogo'); window.scrollTo({top:0, behavior:'smooth'})">ByDagu<span>.</span>CO</a>
   <ul class="nav-links">
@@ -31,9 +23,6 @@
   </div>
 </nav>
 
-<!-- ============================================================
-     SECCIÓN: CATÁLOGO
-     ============================================================ -->
 <div id="section-catalogo">
   <div class="hero">
     <div class="hero-tag" id="hero-tag">Siente tu estilo</div>
@@ -44,20 +33,13 @@
       <button class="btn-secondary" onclick="showSection('ofertas')">Ver ofertas</button>
     </div>
   </div>
-
   <div class="section-header">
     <h2>Catálogo</h2>
     <span id="contador-productos">0 productos</span>
   </div>
-
-  <div class="productos-grid" id="productos-grid">
-    <!-- Los productos se generan automáticamente desde el array de abajo -->
-  </div>
+  <div class="productos-grid" id="productos-grid"></div>
 </div>
 
-<!-- ============================================================
-     SECCIÓN: OFERTAS
-     ============================================================ -->
 <div id="section-ofertas" style="display:none">
   <div class="section-header">
     <h2>Ofertas Especiales</h2>
@@ -69,15 +51,10 @@
       <p id="oferta-desc">Piezas seleccionadas con descuentos brutales. Solo por tiempo limitado. No te quedes sin las tuyas.</p>
       <button class="btn-primary" onclick="showSection('catalogo')">Ver todo el catálogo</button>
     </div>
-    <div class="oferta-lista" id="oferta-lista">
-      <!-- Las ofertas se generan automáticamente -->
-    </div>
+    <div class="oferta-lista" id="oferta-lista"></div>
   </div>
 </div>
 
-<!-- ============================================================
-     SECCIÓN: CONTACTO
-     ============================================================ -->
 <div id="section-contacto" style="display:none">
   <div class="section-header">
     <h2>Contacto</h2>
@@ -88,22 +65,10 @@
       <h3>Hablemos</h3>
       <p>¿Tienes preguntas sobre pedidos, tallas o envíos? Escríbenos por WhatsApp o llena el formulario y te respondemos pronto.</p>
       <div class="contacto-datos">
-        <div class="dato">
-          <div class="dato-icon">📱</div>
-          <span id="info-telefono">+57 300 000 0000</span>
-        </div>
-        <div class="dato">
-          <div class="dato-icon">✉️</div>
-          <span id="info-email">info@urbnco.com</span>
-        </div>
-        <div class="dato">
-          <div class="dato-icon">📍</div>
-          <span id="info-direccion">Sogamoso, Boyacá, Colombia</span>
-        </div>
-        <div class="dato">
-          <div class="dato-icon">🕐</div>
-          <span id="info-horario">Lun - Sáb: 9am - 7pm</span>
-        </div>
+        <div class="dato"><div class="dato-icon">📱</div><span id="info-telefono">+57 300 000 0000</span></div>
+        <div class="dato"><div class="dato-icon">✉️</div><span id="info-email">info@urbnco.com</span></div>
+        <div class="dato"><div class="dato-icon">📍</div><span id="info-direccion">Sogamoso, Boyacá, Colombia</span></div>
+        <div class="dato"><div class="dato-icon">🕐</div><span id="info-horario">Lun - Sáb: 9am - 7pm</span></div>
       </div>
     </div>
     <div class="contacto-form">
@@ -118,11 +83,9 @@
       </div>
       <div class="form-group">
         <label>Mensaje</label>
-        <textarea id="form-mensaje" placeholder="¿En qué te podemos ayudar? Puedes preguntar por tallas, precios, envíos..."></textarea>
+        <textarea id="form-mensaje" placeholder="¿En qué te podemos ayudar?"></textarea>
       </div>
-      <button class="btn-whatsapp" onclick="enviarWhatsApp()">
-        💬 Enviar por WhatsApp
-      </button>
+      <button class="btn-whatsapp" onclick="enviarWhatsApp()">💬 Enviar por WhatsApp</button>
     </div>
   </div>
 </div>
@@ -132,9 +95,7 @@
   <p>© 2025 ByDagu.CO — Moda urbana colombiana. Todos los derechos reservados.</p>
 </footer>
 
-<!-- ============================================================
-     CARRITO SIDEBAR
-     ============================================================ -->
+<!-- CARRITO -->
 <div class="carrito-overlay" id="carrito-overlay" onclick="toggleCarrito()"></div>
 <div class="carrito-panel" id="carrito-panel">
   <div class="carrito-header">
@@ -142,10 +103,7 @@
     <button class="carrito-close" onclick="toggleCarrito()">✕</button>
   </div>
   <div class="carrito-items" id="carrito-items">
-    <div class="carrito-vacio">
-      <span class="carrito-vacio-icon">🛒</span>
-      Tu carrito está vacío
-    </div>
+    <div class="carrito-vacio"><span class="carrito-vacio-icon">🛒</span>Tu carrito está vacío</div>
   </div>
   <div class="carrito-footer" id="carrito-footer" style="display:none">
     <div class="carrito-total">
@@ -156,21 +114,8 @@
   </div>
 </div>
 
-<!-- ============================================================
-     TOAST NOTIFICACIÓN
-     ============================================================ -->
-<!-- ============================================================
-     MODAL DETALLE DE PRODUCTO
-     ============================================================ -->
+<!-- MODAL PRODUCTO -->
 <div class="modal-overlay" id="modal-overlay" onclick="cerrarModal()"></div>
-<div class="fullscreen-overlay" id="fullscreen-overlay" onclick="cerrarFullscreen()">
-  <img id="fullscreen-img" src="" alt="">
-  <button class="fullscreen-close" onclick="cerrarFullscreen()">✕</button>
-</div>
-<div class="fullscreen-overlay" id="fullscreen-overlay" onclick="cerrarFullscreen()">
-  <img id="fullscreen-img" src="" alt="">
-  <button class="fullscreen-close" onclick="cerrarFullscreen()">✕</button>
-</div>
 <div class="modal-producto" id="modal-producto">
   <button class="modal-close" onclick="cerrarModal()">✕</button>
   <div class="modal-body">
@@ -195,45 +140,28 @@
   </div>
 </div>
 
+<!-- FULLSCREEN -->
+<div class="fullscreen-overlay" id="fullscreen-overlay" onclick="cerrarFullscreen()">
+  <img id="fullscreen-img" src="" alt="">
+  <button class="fullscreen-close" onclick="cerrarFullscreen()">✕</button>
+</div>
+
 <div class="toast" id="toast"></div>
 
-<!-- ============================================================
-     ╔══════════════════════════════════════════════════════════╗
-     ║              ZONA DE CONFIGURACIÓN                      ║
-     ║   👇 EDITA AQUÍ TUS PRODUCTOS E INFO DE CONTACTO        ║
-     ╚══════════════════════════════════════════════════════════╝
-     ============================================================ -->
 <script>
 
-/* ============================================================
-   CONFIGURACIÓN GENERAL DE LA TIENDA
-   Cambia estos valores por los de tu tienda
-   ============================================================ */
 const config = {
   nombreTienda: "Bydagu.CO",
   heroTag: "Crea tu propio estilo con ByDagu",
-  heroTitulo: "Ropa que rima con<br>quién eres",   /* <em> = texto en color acento */
+  heroTitulo: "Ropa que rima con<br>quién eres",
   heroDescripcion: "Ropa urbana y streetwear que no sigue reglas. Colección exclusiva disponible.",
   ofertaDescripcion: "Piezas seleccionadas con descuentos brutales. Solo por tiempo limitado. No te quedes sin las tuyas.",
-
-  /* ── INFORMACIÓN DE CONTACTO ──────────────────────────── */
-  telefono: "+57 319 784 9668",   /* <- Tu número de WhatsApp */
+  telefono: "+57 319 784 9668",
   email: "Bydagu33@gmail.com",
   direccion: "Sogamoso, Boyacá, Colombia",
   horario: "Lun - Sáb: 7am - 9pm",
 };
 
-
-/* ============================================================
-   LISTA DE PRODUCTOS
-   - nombre:    Nombre del producto
-   - categoria: Categoría (ej: "Camisetas", "Pantalones")
-   - precio:    Precio en pesos colombianos (COP)
-   - original:  Precio antes del descuento (0 = sin descuento)
-   - imagen:    Ruta de la foto (ej: "fotos/mi-foto.jpg")
-   - badge:     "nuevo" | "oferta" | "" (sin badge)
-   - tallas:    Array de tallas disponibles
-   ============================================================ */
 const productos = [
   {
     nombre: "Pantalón Cargo",
@@ -337,10 +265,6 @@ const productos = [
      ──────────────────────────────────────────────────────── */
 ];
 
-/* ============================================================
-   LÓGICA DE LA TIENDA — no necesitas editar esto
-   ============================================================ */
-
 let carrito = [];
 
 function formatCOP(n) {
@@ -352,11 +276,9 @@ function pct(precio, original) {
   return Math.round((1 - precio / original) * 100);
 }
 
-/* ── RENDER PRODUCTOS ────────────────────────────────────── */
 function renderProductos() {
   const grid = document.getElementById("productos-grid");
   document.getElementById("contador-productos").textContent = productos.length + " productos";
-
   grid.innerHTML = productos.map((p, i) => `
     <div class="producto-card" onclick="verProducto(${i})">
       <div class="producto-img">
@@ -386,19 +308,17 @@ function renderProductos() {
   `).join("");
 }
 
-
-/* ── RENDER OFERTAS ──────────────────────────────────────── */
 function renderOfertas() {
   const lista = document.getElementById("oferta-lista");
   const ofertas = productos.filter(p => p.badge === "oferta");
-
   if (ofertas.length === 0) {
     lista.innerHTML = '<div class="no-ofertas">No hay ofertas activas en este momento.</div>';
     return;
   }
-
-  lista.innerHTML = ofertas.map((p) => `
-    <div class="oferta-item">
+  lista.innerHTML = ofertas.map((p) => {
+    const i = productos.indexOf(p);
+    return `
+    <div class="oferta-item" onclick="verProducto(${i})" style="cursor:pointer">
       <img src="${p.imagen}" alt="${p.nombre}" style="width:56px;height:56px;object-fit:cover;border-radius:4px;flex-shrink:0;background:#1c1c1c">
       <div class="oferta-item-info">
         <h4>${p.nombre}</h4>
@@ -408,11 +328,10 @@ function renderOfertas() {
         <div class="pct">-${pct(p.precio, p.original)}%</div>
         ${p.original ? `<div class="antes">${formatCOP(p.original)}</div>` : ""}
       </div>
-    </div>
-  `).join("");
+    </div>`;
+  }).join("");
 }
 
-/* ── NAVEGACIÓN ──────────────────────────────────────────── */
 function showSection(sec) {
   ["catalogo", "ofertas", "contacto"].forEach(id => {
     document.getElementById("section-" + id).style.display = id === sec ? "block" : "none";
@@ -423,7 +342,6 @@ function showSection(sec) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-/* ── CARRITO ─────────────────────────────────────────────── */
 function agregarCarrito(i) {
   carrito.push({ ...productos[i], uid: Date.now() });
   actualizarCarrito();
@@ -440,24 +358,16 @@ function actualizarCarrito() {
   const itemsEl  = document.getElementById("carrito-items");
   const footerEl = document.getElementById("carrito-footer");
   const totalEl  = document.getElementById("carrito-total-precio");
-
   count.textContent = carrito.length;
-
   if (carrito.length === 0) {
-    itemsEl.innerHTML = `
-      <div class="carrito-vacio">
-        <span class="carrito-vacio-icon">🛒</span>
-        Tu carrito está vacío
-      </div>`;
+    itemsEl.innerHTML = `<div class="carrito-vacio"><span class="carrito-vacio-icon">🛒</span>Tu carrito está vacío</div>`;
     footerEl.style.display = "none";
     return;
   }
-
   const total = carrito.reduce((s, item) => s + item.precio, 0);
   itemsEl.innerHTML = carrito.map(item => `
     <div class="carrito-item">
-      <img src="${item.imagen}" alt="${item.nombre}"
-        style="width:48px;height:48px;object-fit:cover;border-radius:4px;flex-shrink:0;background:#1c1c1c">
+      <img src="${item.imagen}" alt="${item.nombre}" style="width:48px;height:48px;object-fit:cover;border-radius:4px;flex-shrink:0;background:#1c1c1c">
       <div class="carrito-item-info">
         <h4>${item.nombre}</h4>
         <p>${item.categoria}</p>
@@ -466,7 +376,6 @@ function actualizarCarrito() {
       <button class="carrito-remove" onclick="quitarCarrito(${item.uid})">✕</button>
     </div>
   `).join("");
-
   totalEl.textContent = formatCOP(total);
   footerEl.style.display = "block";
 }
@@ -485,20 +394,15 @@ function checkout() {
   window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, "_blank");
 }
 
-/* ── CONTACTO WHATSAPP ───────────────────────────────────── */
 function enviarWhatsApp() {
   const nombre  = document.getElementById("form-nombre").value.trim();
   const mensaje = document.getElementById("form-mensaje").value.trim();
-  if (!nombre || !mensaje) {
-    mostrarToast("Por favor completa tu nombre y mensaje");
-    return;
-  }
+  if (!nombre || !mensaje) { mostrarToast("Por favor completa tu nombre y mensaje"); return; }
   const tel   = config.telefono.replace(/\D/g, "");
   const texto = `Hola! Soy ${nombre}. ${mensaje}`;
   window.open(`https://wa.me/${tel}?text=${encodeURIComponent(texto)}`, "_blank");
 }
 
-/* ── TOAST ───────────────────────────────────────────────── */
 function mostrarToast(msg) {
   const t = document.getElementById("toast");
   t.textContent = msg;
@@ -506,7 +410,6 @@ function mostrarToast(msg) {
   setTimeout(() => t.classList.remove("show"), 2800);
 }
 
-/* ── APLICAR CONFIGURACIÓN ───────────────────────────────── */
 function aplicarConfig() {
   document.title = config.nombreTienda + " — Tienda";
   document.getElementById("hero-tag").textContent    = config.heroTag;
@@ -528,17 +431,6 @@ function cerrarFullscreen() {
   document.getElementById("fullscreen-overlay").classList.remove("open");
 }
 
-/* ── FULLSCREEN ──────────────────────────────────────────── */
-function abrirFullscreen(src) {
-  document.getElementById("fullscreen-img").src = src;
-  document.getElementById("fullscreen-overlay").classList.add("open");
-}
-
-function cerrarFullscreen() {
-  document.getElementById("fullscreen-overlay").classList.remove("open");
-}
-
-/* ── MODAL DETALLE ───────────────────────────────────────── */
 let fotoActual = 0;
 let fotosActuales = [];
 
@@ -546,7 +438,6 @@ function cambiarFoto(dir) {
   fotoActual = (fotoActual + dir + fotosActuales.length) % fotosActuales.length;
   document.getElementById("modal-img").src = fotosActuales[fotoActual];
   document.getElementById("modal-foto-contador").textContent = (fotoActual + 1) + " / " + fotosActuales.length;
-  // actualizar miniaturas
   document.querySelectorAll(".modal-miniatura").forEach((m, idx) => {
     m.classList.toggle("activa", idx === fotoActual);
   });
@@ -561,13 +452,10 @@ function verProducto(i) {
   imgEl.src = fotosActuales[0];
   imgEl.alt = p.nombre;
 
-  // Flechas y miniaturas
   const wrap = document.getElementById("modal-imagen-wrap");
-  // Limpiar elementos anteriores
   wrap.querySelectorAll(".modal-miniaturas, .modal-flecha, .modal-contador").forEach(el => el.remove());
 
   if (fotosActuales.length > 1) {
-    // Flechas
     const flechaIzq = document.createElement("button");
     flechaIzq.className = "modal-flecha modal-flecha-izq";
     flechaIzq.innerHTML = "&#8592;";
@@ -578,13 +466,11 @@ function verProducto(i) {
     flechaDer.innerHTML = "&#8594;";
     flechaDer.onclick = (e) => { e.stopPropagation(); cambiarFoto(1); };
 
-    // Contador
     const contador = document.createElement("div");
     contador.className = "modal-contador";
     contador.id = "modal-foto-contador";
     contador.textContent = "1 / " + fotosActuales.length;
 
-    // Miniaturas
     const minDiv = document.createElement("div");
     minDiv.className = "modal-miniaturas";
     fotosActuales.forEach((src, idx) => {
@@ -619,9 +505,7 @@ function verProducto(i) {
     : p.badge === "nuevo" ? '<div class="badge-nuevo">Nuevo</div>' : "";
   document.getElementById("modal-tallas").innerHTML =
     p.tallas.map(t => `<span class="talla">${t}</span>`).join("");
-  document.getElementById("modal-btn-agregar").onclick = () => {
-    agregarCarrito(i); cerrarModal();
-  };
+  document.getElementById("modal-btn-agregar").onclick = () => { agregarCarrito(i); cerrarModal(); };
   document.getElementById("modal-btn-ws").onclick = () => {
     const tel = config.telefono.replace(/\D/g, "");
     const msg = `¡Hola! Me interesa el producto: *${p.nombre}* (${formatCOP(p.precio)}). ¿Tienen disponibilidad?`;
@@ -638,7 +522,6 @@ function cerrarModal() {
   document.body.style.overflow = "";
 }
 
-/* ── INICIO ──────────────────────────────────────────────── */
 aplicarConfig();
 renderProductos();
 
