@@ -383,6 +383,26 @@ footer {
 .footer-logo span { color: var(--acento); }
 footer p { font-size: 12px; color: #444; }
 
+/* ===== IMAGEN PANTALLA COMPLETA ===== */
+.fullscreen-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.95); z-index: 500;
+  align-items: center; justify-content: center;
+  cursor: zoom-out;
+}
+.fullscreen-overlay.open { display: flex; }
+.fullscreen-overlay img {
+  max-width: 95vw; max-height: 95vh;
+  object-fit: contain; border-radius: 2px;
+}
+.fullscreen-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: #1e1e1e; border: 1px solid #444;
+  color: #fff; font-size: 18px; width: 36px; height: 36px;
+  border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
 /* ===== MODAL DETALLE PRODUCTO ===== */
 .modal-overlay {
   display: none; position: fixed; inset: 0;
